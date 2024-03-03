@@ -15,7 +15,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd qc_digital
+   cd .\QC\qc_digital\
 ```
 
 Install dependencies
