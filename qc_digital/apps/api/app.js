@@ -53,7 +53,7 @@ app.post("/api/image-upload", async (req, res) => {
 
     const images = await pdfDoc.embedJpg(jpgImageBytes);
 
-    const imageDims = images.scale(0.05);
+    const imageDims = images.scale(0.5);
 
     const page = pdfDoc.addPage();
     page.drawText(commodity, { x: 50, y: page.getHeight() - 100 }); // Add commodity text
@@ -77,8 +77,9 @@ app.post("/api/image-upload", async (req, res) => {
       data: {
         imagePath: filePath.slice(1), // Or the uploaded URL
         commodity: {
-          connect: {
-            name: commodity,
+          connectOrCreate: {
+            where: { name: commodity },
+            create: { name: commodity },
           },
         },
         // Other fields as needed
