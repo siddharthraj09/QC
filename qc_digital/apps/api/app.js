@@ -53,13 +53,13 @@ app.post("/api/image-upload", async (req, res) => {
 
     const images = await pdfDoc.embedJpg(jpgImageBytes);
 
-    const imageDims = images.scale(0.5);
+    const imageDims = images.scale(0.1);
 
     const page = pdfDoc.addPage();
     page.drawText(commodity, { x: 50, y: page.getHeight() - 100 }); // Add commodity text
     page.drawImage(images, {
-      x: 50,
-      y: page.getHeight() - imageDims.height - 75,
+      x: page.getWidth() / 2 - imageDims.width / 2,
+      y: page.getHeight() / 2 - imageDims.height / 2 + 250,
       width: imageDims.width,
       height: imageDims.height,
     });
