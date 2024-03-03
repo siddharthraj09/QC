@@ -3,6 +3,11 @@
 
 Assignment by siddharth 
 
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file in QC\qc_digital\apps\api
+
+`DATABASE_URL`="YOUR POSTGRES SQL CONNECTION STRING"
 
 ## Run Locally
 
